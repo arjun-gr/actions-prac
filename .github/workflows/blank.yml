@@ -1,0 +1,31 @@
+name: CI
+on: 
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+     - uses: action/checkout@v3
+
+     - name: installing node
+     - uses: action/setup-node@v3
+       with: 
+         node-version: 18
+
+     - name: installing packages
+       run: npm install
+
+     - name: test 
+       run: echo 'testing app'
+
+     - name: build
+       run: echo 'building app'
+
+     - name: deploy
+       run: echo 'deployed app'
+       
+
+    
